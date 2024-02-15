@@ -18,12 +18,22 @@ func main() {
 	// 	fmt.Println()
 	// }
 
+	// emp := karyawan{}
+	// getAll(&emp)
+	// dept := departemen{}
+	// getAll(&dept)
+
 	// String.go
-	// substring("Hello World", 4, 10)
+	// substring("Hello World", 0, 4)
 	// splitString("Hello World Dunia")
+	// stringReplace("HelloWorld", "o", "a", 2)
+	// strPadLeft("agoes")
 
 	// Encode b64 and SHA1
-	// var text = "this is secret"
+	// var text = "agoes"
+	// fmt.Println(ValidMAC(text, "flp28"))
+	// fmt.Println(tripleDES(text))
+	// encodeDecodeBase64(text)
 	// fmt.Printf("original : %s\n\n", text)
 
 	// var hashed1, salt1 = doHashUsingSalt(text)
@@ -38,8 +48,10 @@ func main() {
 	// _, _, _ = salt1, salt2, salt3
 
 	// Basic Channel
+	// implGoroutine()
 	// channelTest()
 	// channelTestAgain()
+	// waitGroup()
 
 	// Non Goroutine
 	// nonGoroutine()
@@ -49,4 +61,10 @@ func main() {
 
 	// Goroutine WG
 	// wgRoutine()
+
+	// JSON & XML Parser
+	// jsonParser()
+	// xmlParser()
+	token := getToken()
+	getData(token)
 }

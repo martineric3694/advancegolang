@@ -23,5 +23,5 @@ func implGoroutine() {
 	var input string
 	fmt.Scanln(&input)
 
-	waitGroup()
+	// waitGroup()
 }

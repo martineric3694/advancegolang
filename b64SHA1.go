@@ -1,8 +1,11 @@
 package main
 
 import (
+	"crypto/des"
+	"crypto/hmac"
 	"crypto/sha1"
 	"encoding/base64"
+	"encoding/hex"
 	"fmt"
 	"time"
 )
@@ -36,4 +39,25 @@ func doHashUsingSalt(data string) (string, string) {
 	var encrypted = sha.Sum(nil)
 
 	return fmt.Sprintf("%x", encrypted), salt
+}
+
+func Hashing(message, key string) string {
+	mac := hmac.New(sha1.New, []byte(key))
+	mac.Write([]byte(message))
+	return hex.EncodeToString(mac.Sum(nil))
+}
+
+func tripleDES(message string) []byte {
+	ede2Key := []byte(message)
+
+	var tripleDESKey []byte
+	tripleDESKey = append(tripleDESKey, ede2Key[:16]...)
+	tripleDESKey = append(tripleDESKey, ede2Key[:8]...)
+
+	fmt.Println(tripleDESKey)
+	_, err := des.NewTripleDESCipher(tripleDESKey)
+	if err != nil {
+		panic(err)
+	}
+	return tripleDESKey
 }

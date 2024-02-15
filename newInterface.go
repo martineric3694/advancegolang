@@ -1,50 +1,58 @@
 package main
 
-type Employee struct {
+import "fmt"
+
+type karyawan struct {
 	EmployeeID int
 	Nama       string
 	Address    string
 	Salary     float64
 }
 
-type Department struct {
+type departemen struct {
 	DepartmentID   string
 	DepartmentName string
 }
 
-type Operasi interface {
+type Operation interface {
 	getAll()
-	getOne()
 }
 
-func (emp Employee) getAll() []Employee {
-	adi := Employee{
+func getAll(op Operation) {
+	op.getAll()
+}
+
+func (e *karyawan) getAll() {
+	adi := karyawan{
 		EmployeeID: 123,
 		Nama:       "Adi",
 		Address:    "Jakarta",
 		Salary:     100.55,
 	}
-	budi := Employee{
+	budi := karyawan{
 		EmployeeID: 456,
 		Nama:       "Budi",
 		Address:    "Bogor",
 		Salary:     70.79,
 	}
-	hasil := []Employee{}
-	hasil = append(hasil, adi, budi)
-	return hasil
+	fmt.Print(adi)
+	fmt.Print("+")
+	fmt.Print(budi)
+	// hasil := []data{}
+	// hasil = append(hasil, adi, budi)
+	// return hasil
 }
 
-func (dept Department) getAll() []Department {
-	finance := Department{
+func (d *departemen) getAll() {
+	finance := departemen{
 		DepartmentID:   "1",
 		DepartmentName: "Finance",
 	}
-	hr := Department{
+	hr := departemen{
 		DepartmentID:   "2",
 		DepartmentName: "HR",
 	}
-	hasil := []Department{}
+	hasil := []departemen{}
 	hasil = append(hasil, finance, hr)
-	return hasil
+	fmt.Println(hasil)
 }

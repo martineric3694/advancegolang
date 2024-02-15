@@ -18,6 +18,7 @@ func channelTest() {
 	go sayHelloTo("john wick")
 	go sayHelloTo("ethan hunt")
 	go sayHelloTo("jason bourne")
+	go sayHelloTo("martin eric")
 
 	var message1 = <-messages
 	fmt.Println(message1)
@@ -27,6 +28,9 @@ func channelTest() {
 
 	var message3 = <-messages
 	fmt.Println(message3)
+
+	var message4 = <-messages
+	fmt.Println(message4)
 }
 
 var Message = make(chan string)

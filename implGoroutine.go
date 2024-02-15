@@ -26,10 +26,10 @@ func waitGroup() {
 	var wg sync.WaitGroup
 
 	wg.Add(1)
-	go printWG(10, "Hallo", &wg)
+	go printWG(100, "Hallo", &wg)
 
 	wg.Add(1)
-	go printWG(3, "Dunia", &wg)
+	go printWG(30, "Dunia", &wg)
 
 	wg.Wait()
 }
